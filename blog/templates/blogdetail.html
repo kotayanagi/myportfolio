@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="blogdetail">
+    <div class="postview">
+
+        <h1>{{ detailblog.title }}</h1>
+        <h4>{{ detailblog.pub_date_pretty }}</p>
+        <img src="{{ detailblog.image.url }}">
+
+        <br>
+        <p>{{ detailblog.body }}</p>
+        <br>
+
+    </div>
+</section>
+
+{% endblock %}

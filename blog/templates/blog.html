@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="blog">
+    <h1>あなたの人生を<br>ちょっと豊かにするブログ</h1>
+
+    <div class="blogposts">
+
+        {% for blog in blogs.all %}
+
+        <a href="{% url 'blogdetail' blog.id %}">
+            <div class="posttitle"><h3 class="blogh3">{{ blog.title }}</h3></div>
+            <h6 class="blogh6">{{ blog.pub_date_pretty }}</h6>
+            <img class="blogimg" src="{{ blog.image.url }}">
+            <p class="blogp">{{ blog.summary }}</p></a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<section>
+<nav aria-label="Page navigation">
+        <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li>
+            <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% endif %}
+      
+          {% for page in paginator.page_range %}
+          <li{%  if page == page_obj.number %} class="active" {%  endif %}><a href="?page={{ page }}">{{ page }}</a></li>
+          {% endfor %}
+      
+          {% if page_obj.has_next %}
+          <li>
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% endif %}
+        </ul>
+</nav>
+</section>
+
+{% endblock %}

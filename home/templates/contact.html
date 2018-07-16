@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+ <section class="contact-section">
+
+    <h1>お問い合わせ</h1>
+    <div class="sentence">
+        <p>
+            webサイト制作依頼（写真動画撮影、サイトの英語化対応可）、ECサイト制作依頼、ポートレイト、その他写真撮影、
+            英語関連のお仕事のお依頼は<a href="mailto:kyana875@gmail.com">メール</a>か
+            下記のお問い合わせからご連絡ください。
+        </p>
+
+        <ul>
+            <p>Examples</p>
+            <li>シンプルな１−３ページ程度のWebサイト （5万円程度〜）</li>
+            <li>写真投稿や簡易的なブログ投稿の管理機能・Webサイト英語化（各々上記に５万円追加〜）</li>
+            <li>Webサイト用の写真撮影（量により応相談）</li>
+            <li>ポートレイト撮影（１万円/２時間）</li>
+            <li>6ヶ月でバイリンガルを目指す週１の英会話コーチング（２万円/月）</li>
+            <p>＊写真撮影など、オンラインでの対応ができない依頼は関東近郊の方に限ります。</p>
+        </ul>
+    </div>
+
+    <div class="form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">送信</button>
+        </form>
+    </div>
+
+ </section>
+
+ {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <h1 class="garrely-title">写真作品集</h1>
+    <div class="garrelyframe">
+
+        {% for pic in photos.all %}
+        <div class="garrely">
+            <a href="{{ pic.image.url }}">
+                <img src="{{ pic.image.url }}">
+                <p>{{ pic.location }}</p>
+                <p>{{ pic.camera }}</p>
+                <p>"{{ pic.description }}"</p>
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock %}
