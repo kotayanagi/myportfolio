@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name 206.189.33.128;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/admin/ {
+        root /home/kotayanagi/myportfolio;
+    }
+
+    location /media/ {
+        root /home/kotayanagi/myportfolio;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/kotayanagi/myportfolio/myportfolio.sock;
+    }
+}
