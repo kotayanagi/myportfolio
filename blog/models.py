@@ -12,6 +12,10 @@ class Blog(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
+    pic1 = models.ImageField(upload_to='images/', height_field='auto', width_field='80%')
+    pic2 = models.ImageField(upload_to='images/', height_field='auto', width_field='80%')
+    pic3 = models.ImageField(upload_to='images/', height_field='auto', width_field='80%')
+
 
     def __str__(self):
         return self.title
